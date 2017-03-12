@@ -6,6 +6,9 @@
 	<!-- 设置二级缓存, 延时加载 -->
 	
 	<!-- 别名 -->
+	<typeAliases>
+		<package name="cn.itcast.core.bean"/>
+	</typeAliases>
 	
 	<!-- Mapper的位置,整合了spring不用配置 -->
 	
