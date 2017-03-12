@@ -25,6 +25,6 @@ public class TestTbServiceImpl implements TestTbService
 		testTbDao.insertTestTb(testTb);
 		
 		// 若事务起作用, 抛出异常事务回滚
-		throw new RuntimeException();
+//		throw new RuntimeException();
 	}
 }

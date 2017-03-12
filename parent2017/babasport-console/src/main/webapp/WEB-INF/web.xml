@@ -4,6 +4,27 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
- 
+ 	<!-- Springmvc -->
+	<servlet>
+		<servlet-name>console</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<!-- 默认: WEB-INF/[servlet-name]-servlet.xml -->
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:springmvc-console.xml</param-value>
+		</init-param>
+	</servlet>
+
+	<!-- 配置规则
+		*.do: 拦截请求路径所有的后缀为.do;
+		/*	: 拦截所有, .jsp页面也会拦截; 不会使用此配置, 因为视图会无法跳转;
+		/	: 拦截所有, .jsp页面不会被拦截; 会拦截.js .css .png; (需要配置对静态资源放行)
+	
+		注意: 本项目中: 后台使用*.do; 前台使用/; 单点登录使用*.aspx;
+	 -->
+	<servlet-mapping>
+		<servlet-name>console</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
 
 </web-app>
