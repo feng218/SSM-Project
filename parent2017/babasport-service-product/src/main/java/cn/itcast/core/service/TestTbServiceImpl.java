@@ -12,19 +12,22 @@ import cn.itcast.core.dao.TestTbDao;
  * @author pc
  *
  */
-@Service("testTbService")
+@Service(value = "testTbService")
 @Transactional
 public class TestTbServiceImpl implements TestTbService
 {
 	@Autowired
 	private TestTbDao testTbDao;
-	
-	// 保存
+
+	//保存
+	@Override
 	public void insertTestTb(TestTb testTb)
 	{
 		testTbDao.insertTestTb(testTb);
 		
 		// 若事务起作用, 抛出异常事务回滚
-//		throw new RuntimeException();
+//			throw new RuntimeException();
 	}
+	
+	
 }

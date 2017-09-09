@@ -10,7 +10,7 @@
   
   <!-- 依赖管理 -->
   <dependencies>
-  	<!-- Dao 接口  实现类 -->
+  	<!-- Dao mapper接口  实现类 -->
   	<dependency>
   		<groupId>cn.itcast.babasport</groupId>
     	<artifactId>babasport-dao</artifactId>
@@ -24,5 +24,11 @@
     	<version>0.0.1-SNAPSHOT</version>
   	</dependency>
   
+  	<!-- tomcat7 servlet-api -->
+	<dependency>
+		<groupId>org.apache.tomcat</groupId>
+		<artifactId>tomcat-jsp-api</artifactId>
+		<scope>provided</scope>
+	</dependency>
   </dependencies>
 </project>
