@@ -12,12 +12,12 @@ import cn.itcast.core.dao.TestTbDao;
  * @author pc
  *
  */
-@Service
+@Service("testTbService")
 @Transactional
 public class TestTbServiceImpl implements TestTbService
 {
 	@Autowired
-	TestTbDao testTbDao;
+	private TestTbDao testTbDao;
 	
 	// 保存
 	public void insertTestTb(TestTb testTb)
