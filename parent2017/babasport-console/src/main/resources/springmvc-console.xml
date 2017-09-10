@@ -27,7 +27,7 @@
 	
 	<!-- 试图解析器 -->
 	<bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/back_page/"></property>
+		<property name="prefix" value="/WEB-INF/console/"></property>
 		<property name="suffix" value=".jsp"></property>
 	</bean>
 	
