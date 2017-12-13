@@ -37,111 +37,23 @@
 		</tr>
 	</thead>
 	<tbody class="pn-ltbody">
-	
-		<tr bgcolor="#ffffff" onmouseout="this.bgColor='#ffffff'" onmouseover="this.bgColor='#eeeeee'">
-			<td><input type="checkbox" value="8" name="ids"/></td>
-			<td align="center">8</td>
-			<td align="center">金乐乐</td>
-			<td align="center"><img width="40" height="40" src="/res/img/pic/ppp.jpg"/></td>
-			<td align="center"></td>
-			<td align="center">99</td>
-			<td align="center">是</td>
-			<td align="center">
-			<a class="pn-opt" href="#">修改</a> | <a class="pn-opt" onclick="if(!confirm('您确定删除吗？')) {return false;}" href="#">删除</a>
-			</td>
-		</tr>
-	
-		<tr bgcolor="#ffffff" onmouseout="this.bgColor='#ffffff'" onmouseover="this.bgColor='#eeeeee'">
-			<td><input type="checkbox" value="7" name="ids"/></td>
-			<td align="center">7</td>
-			<td align="center">喜悦瑜伽</td>
-			<td align="center"><img width="40" height="40" src="/res/img/pic/ppp1.jpg"/></td>
-			<td align="center"></td>
-			<td align="center">99</td>
-			<td align="center">是</td>
-			<td align="center">
-			<a class="pn-opt" href="#">修改</a> | <a class="pn-opt" onclick="if(!confirm('您确定删除吗？')) {return false;}" href="#">删除</a>
-			</td>
-		</tr>
-	
-		<tr bgcolor="#ffffff" onmouseout="this.bgColor='#ffffff'" onmouseover="this.bgColor='#eeeeee'">
-			<td><input type="checkbox" value="6" name="ids"/></td>
-			<td align="center">6</td>
-			<td align="center">丹璐斯</td>
-			<td align="center"><img width="40" height="40" src="/res/img/pic/ppp2.jpg"/></td>
-			<td align="center"></td>
-			<td align="center">99</td>
-			<td align="center">是</td>
-			<td align="center">
-			<a class="pn-opt" href="#">修改</a> | <a class="pn-opt" onclick="if(!confirm('您确定删除吗？')) {return false;}" href="#">删除</a>
-			</td>
-		</tr>
-	
-		<tr bgcolor="#ffffff" onmouseout="this.bgColor='#ffffff'" onmouseover="this.bgColor='#eeeeee'">
-			<td><input type="checkbox" value="5" name="ids"/></td>
-			<td align="center">5</td>
-			<td align="center">菩媞</td>
-			<td align="center"><img width="40" height="40" src="/res/img/pic/ppp3.jpg"/></td>
-			<td align="center"></td>
-			<td align="center">99</td>
-			<td align="center">是</td>
-			<td align="center">
-			<a class="pn-opt" href="#">修改</a> | <a class="pn-opt" onclick="if(!confirm('您确定删除吗？')) {return false;}" href="#">删除</a>
-			</td>
-		</tr>
-	
-		<tr bgcolor="#ffffff" onmouseout="this.bgColor='#ffffff'" onmouseover="this.bgColor='#eeeeee'">
-			<td><input type="checkbox" value="4" name="ids"/></td>
-			<td align="center">4</td>
-			<td align="center">伊朵莲</td>
-			<td align="center"><img width="40" height="40" src="/res/img/pic/ppp4.jpg"/></td>
-			<td align="center"></td>
-			<td align="center">99</td>
-			<td align="center">是</td>
-			<td align="center">
-			<a class="pn-opt" href="#">修改</a> | <a class="pn-opt" onclick="if(!confirm('您确定删除吗？')) {return false;}" href="#">删除</a>
-			</td>
-		</tr>
-	
-		<tr bgcolor="#ffffff" onmouseout="this.bgColor='#ffffff'" onmouseover="this.bgColor='#eeeeee'">
-			<td><input type="checkbox" value="3" name="ids"/></td>
-			<td align="center">3</td>
-			<td align="center">梵歌纳（vangona）</td>
-			<td align="center"><img width="40" height="40" src="/res/img/pic/ppp5.jpg"/></td>
-			<td align="center"></td>
-			<td align="center">99</td>
-			<td align="center">是</td>
-			<td align="center">
-			<a class="pn-opt" href="#">修改</a> | <a class="pn-opt" onclick="if(!confirm('您确定删除吗？')) {return false;}" href="#">删除</a>
-			</td>
-		</tr>
-	
-		<tr bgcolor="#ffffff" onmouseout="this.bgColor='#ffffff'" onmouseover="this.bgColor='#eeeeee'">
-			<td><input type="checkbox" value="2" name="ids"/></td>
-			<td align="center">2</td>
-			<td align="center">凯速（KANSOON）</td>
-			<td align="center"><img width="40" height="40" src="/res/img/pic/ppp6.jpg"/></td>
-			<td align="center"></td>
-			<td align="center">99</td>
-			<td align="center">是</td>
-			<td align="center">
-			<a class="pn-opt" href="#">修改</a> | <a class="pn-opt" onclick="if(!confirm('您确定删除吗？')) {return false;}" href="#">删除</a>
-			</td>
-		</tr>
-	
-		<tr bgcolor="#ffffff" onmouseout="this.bgColor='#ffffff'" onmouseover="this.bgColor='#eeeeee'">
-			<td><input type="checkbox" value="1" name="ids"/></td>
-			<td align="center">1</td>
-			<td align="center">依琦莲</td>
-			<td align="center"><img width="40" height="40" src="/res/img/pic/ppp7.jpg"/></td>
-			<td align="center"></td>
-			<td align="center">99</td>
-			<td align="center">是</td>
-			<td align="center">
-			<a class="pn-opt" href="#">修改</a> | <a class="pn-opt" onclick="if(!confirm('您确定删除吗？')) {return false;}" href="#">删除</a>
-			</td>
-		</tr>
-	
+		<c:forEach var="brand" items="${pagination.list }">
+			<tr bgcolor="#ffffff" onmouseout="this.bgColor='#ffffff'" onmouseover="this.bgColor='#eeeeee'">
+				<td><input type="checkbox" value="8" name="ids"/>${brand.id}</td>
+				<td align="center">${brand.id}</td>
+				<td align="center">${brand.name}</td>
+				<td align="center"><img width="40" height="40" src="/res/img/pic/ppp.jpg"/></td>
+				<td align="center"></td>
+				<td align="center">99</td>
+				<td align="center">
+					<c:if test="${brand.isDisplay == 1}">是</c:if>
+					<c:if test="${brand.isDisplay != 1}">否</c:if>
+				</td>
+				<td align="center">
+				<a class="pn-opt" href="#">修改</a> | <a class="pn-opt" onclick="if(!confirm('您确定删除吗？')) {return false;}" href="#">删除</a>
+				</td>
+			</tr>
+		</c:forEach>
 	</tbody>
 </table>
 <div class="page pb15">

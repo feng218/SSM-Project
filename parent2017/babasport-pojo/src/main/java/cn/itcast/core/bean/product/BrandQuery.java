@@ -26,6 +26,28 @@ public class BrandQuery implements Serializable{
 	private Integer sort;
 	//是否可用   0 不可用 1 可用
 	private Integer isDisplay;//is_display
+	
+	//附加字段
+	private Integer pageNo = 1;    //当前页
+	private Integer pageSize = 10; //每页大小
+	private Integer startRow; //开始行
+	
+	public void setPageNo(Integer pageNo) {
+		this.startRow = (pageNo - 1) * pageSize; //计算开始行
+		this.pageNo = pageNo;
+	}
+	
+	public void setPageSize(Integer pageSize) {
+		this.startRow = (pageNo - 1) * pageSize;  //计算开始行
+		this.pageSize = pageSize;
+	}
+	
+	public Integer getPageNo() {
+		return pageNo;
+	}
+	public Integer getPageSize() {
+		return pageSize;
+	}
 	public Long getId() {
 		return id;
 	}
@@ -68,29 +90,6 @@ public class BrandQuery implements Serializable{
 				+ sort + ", isDisplay=" + isDisplay + "]";
 	}
 	
-	//附加字段
-	private Integer pageNo = 1; //当前页
-	private Integer pageSize = 10;
-	//开始行
-	private Integer startRow;
-	
-	
-	public Integer getPageNo() {
-		return pageNo;
-	}
-	public void setPageNo(Integer pageNo) {
-		//计算开始行
-		this.startRow = (pageNo-1)*pageSize;
-		this.pageNo = pageNo;
-	}
-	public Integer getPageSize() {
-		return pageSize;
-	}
-	public void setPageSize(Integer pageSize) {
-		//计算开始行
-		this.startRow = (pageNo-1)*pageSize;
-		this.pageSize = pageSize;
-	}
 	public Integer getStartRow() {
 		return startRow;
 	}

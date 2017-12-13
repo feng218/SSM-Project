@@ -1,5 +1,7 @@
 package cn.itcast.core.service.product;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,7 +17,6 @@ import cn.itcast.core.dao.product.BrandDao;
  *
  */
 @Service("brandService")
-@Transactional
 public class BrandServiceImpl implements BrandService
 {
 
@@ -23,41 +24,34 @@ public class BrandServiceImpl implements BrandService
 	private BrandDao brandDao;
 	
 	//查询分页对象
-	public Pagination selectPaginationByQuery(String name,Integer isDisplay,Integer pageNo)
+	public Pagination selectPaginationByQuery(String name, Integer isDisplay, Integer pageNo)
 	{
 		BrandQuery brandQuery = new BrandQuery();
+		//若pageNo为null 或 小于1, 则设置pageNo等于1
 		brandQuery.setPageNo(Pagination.cpn(pageNo)); //当前页
-		brandQuery.setPageSize(1); //每页数
-		
-		StringBuilder params = new StringBuilder();
+		brandQuery.setPageSize(3); //每页数
 		
 		//条件
 		if(null != name){
 			brandQuery.setName(name);
-//			params.append("name=").append(name);
 		}
 		
-		//是否可见
+		//在页面上是否可见, 默认为是, 值为1
 		if(null != isDisplay){
 			brandQuery.setIsDisplay(isDisplay);
-//			params.append("&isDisplay=").append(isDisplay);
 		}else{
 			brandQuery.setIsDisplay(1);
-//			params.append("&isDisplay=").append(1);
 		}
 		
+		//构建分页对象 (当前页、每页数(自定义)、总条数)
 		Pagination pagination = new Pagination(
-				brandQuery.getPageNo(), //当前页
-				brandQuery.getPageSize(),
-				brandDao.selectBrandCountByQuery(brandQuery)
+				brandQuery.getPageNo(),   //当前页
+				brandQuery.getPageSize(), //每页数
+				brandDao.selectBrandCountByQuery(brandQuery) //总条数
 				);
-		//设置结果集
+		
+		//设置结果集, 从数据库中查询到结果
 		pagination.setList(brandDao.selectBrandListByQuery(brandQuery));
-		//分页展示
-		String url = "/brand/list.do";
-		
-		pagination.pageView(url, params.toString());
-		
 		return pagination;
 	}
 	

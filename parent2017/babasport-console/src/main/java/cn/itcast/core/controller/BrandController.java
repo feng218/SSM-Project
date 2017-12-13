@@ -5,28 +5,26 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import cn.itcast.common.page.Pagination;
+import cn.itcast.core.service.product.BrandService;
+
 /**
  * 品牌管理
- * 列表
- * 删除
- * 修改
- * 添加
- * 删除（单）
- * @author lx
  *
  */
 @Controller
 public class BrandController 
 {
-//	@Autowired
-//	private BrandService brandService;
+	@Autowired
+	private BrandService brandService;
 	
 	//查询
 	@RequestMapping(value = "/brand/list.do")
 	public String list(String name, Integer isDisplay, Integer pageNo, Model model){
 		
-//		Pagination pagination = brandService.selectPaginationByQuery(name, isDisplay, pageNo);
-//		model.addAttribute("pagination", pagination);
+		//返回分页对象
+		Pagination pagination = brandService.selectPaginationByQuery(name, isDisplay, pageNo);
+		model.addAttribute("pagination", pagination);
 //		model.addAttribute("name", name);
 //		if(null != isDisplay){
 //			model.addAttribute("isDisplay", isDisplay);

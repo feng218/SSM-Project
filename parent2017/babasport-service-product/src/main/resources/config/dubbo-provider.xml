@@ -36,7 +36,7 @@
 	<dubbo:protocol port="20880" name="dubbo"/>
 	
 	<!-- 暴露的接口 -->
-	<dubbo:service interface="cn.itcast.core.service.TestTbService" ref="testTbService"/>
+	<dubbo:service interface="cn.itcast.core.service.product.BrandService" ref="brandService"/>
 	
 </beans>
 		
