@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import cn.itcast.common.page.Pagination;
+import cn.itcast.core.bean.product.Brand;
 import cn.itcast.core.service.product.BrandService;
 
 /**
@@ -20,26 +21,26 @@ public class BrandController
 	
 	//查询
 	@RequestMapping(value = "/brand/list.do")
-	public String list(String name, Integer isDisplay, Integer pageNo, Model model){
-		
+	public String list(String name, Integer isDisplay, Integer pageNo, Model model)
+	{
 		//返回分页对象
 		Pagination pagination = brandService.selectPaginationByQuery(name, isDisplay, pageNo);
 		model.addAttribute("pagination", pagination);
-//		model.addAttribute("name", name);
+		model.addAttribute("name", name);
 //		if(null != isDisplay){
-//			model.addAttribute("isDisplay", isDisplay);
+			model.addAttribute("isDisplay", isDisplay);
 //		}else{
 //			model.addAttribute("isDisplay", 1);
 //		}
 //		
 		return "brand/list";
 	}
+	
 	//去修改页面
-//	@RequestMapping(value = "/brand/toEdit.do")
-//	public String toEdit(Long id,Model model){
-//		Brand brand = brandService.selectBrandById(id);//Shift+Alt +L
-//		model.addAttribute("brand", brand);
-//		
-//		return "brand/edit";
-//	}
+	@RequestMapping(value = "/brand/toEdit.do")
+	public String toEdit(Long id,Model model){
+		Brand brand = brandService.selectBrandById(id);//Shift+Alt +L
+		model.addAttribute("brand", brand);
+		return "brand/edit";
+	}
 }

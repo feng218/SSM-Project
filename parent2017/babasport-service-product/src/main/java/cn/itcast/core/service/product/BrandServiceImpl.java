@@ -31,16 +31,21 @@ public class BrandServiceImpl implements BrandService
 		brandQuery.setPageNo(Pagination.cpn(pageNo)); //当前页
 		brandQuery.setPageSize(3); //每页数
 		
+		StringBuilder params = new StringBuilder(); //分页前台的URL的参数
+		
 		//条件
 		if(null != name){
 			brandQuery.setName(name);
+			params.append("name=").append(name); //拼接name
 		}
 		
-		//在页面上是否可见, 默认为是, 值为1
+		//在页面上是否可见, 默认:是(1)
 		if(null != isDisplay){
 			brandQuery.setIsDisplay(isDisplay);
+			params.append("&isDisplay=").append(isDisplay); //拼接isDisplay
 		}else{
 			brandQuery.setIsDisplay(1);
+			params.append("&isDisplay=1"); //拼接isDisplay
 		}
 		
 		//构建分页对象 (当前页、每页数(自定义)、总条数)
@@ -52,14 +57,16 @@ public class BrandServiceImpl implements BrandService
 		
 		//设置结果集, 从数据库中查询到结果
 		pagination.setList(brandDao.selectBrandListByQuery(brandQuery));
+		
+		//分页在页面上的显示, <a onclick="/brand/list.do?isDisplay=1&pageNo=2"></a>
+		String url = "/brand/list.do";
+		pagination.pageView(url, params.toString());
 		return pagination;
 	}
 	
 	@Override
 	public Brand selectBrandById(Long id) {
-		// TODO Auto-generated method stub
-//		return brandDao.selectBrandById(id);
-		return null;
+		return brandDao.selectBrandById(id);
 	}
 
 }

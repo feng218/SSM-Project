@@ -7,7 +7,7 @@ public interface BrandService {
 	
 	//查询分页对象
 	public Pagination selectPaginationByQuery(String name,Integer isDisplay,Integer pageNo);
+	
 	//通过ID查询品牌
 	public Brand selectBrandById(Long id);
-
 }

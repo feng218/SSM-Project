@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ include file="/back_page/head.jsp" %>
+<%@ include file="../head.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -15,13 +15,14 @@
 </div>
 <div class="body-box" style="float:right">
 	<form id="jvForm" action="o_save.shtml" method="post">
+		<input type="hidden" name="id" value="${bran.id }"/>
 		<table cellspacing="1" cellpadding="2" width="100%" border="0" class="pn-ftable">
 			<tbody>
 				<tr>
 					<td width="20%" class="pn-flabel pn-flabel-h">
 						<span class="pn-frequired">*</span>
 						品牌名称:</td><td width="80%" class="pn-fcontent">
-						<input type="text" class="required" name="name" maxlength="100"/>
+						<input type="text" class="required" name="name" value="${brand.name }" maxlength="100"/>
 					</td>
 				</tr>
 				<tr>
@@ -42,20 +43,20 @@
 				<tr>
 					<td width="20%" class="pn-flabel pn-flabel-h">
 						品牌描述:</td><td width="80%" class="pn-fcontent">
-						<input type="text" class="required" name="name" maxlength="80"  size="60"/>
+						<input type="text" class="required" name="name" value="${brand.description }" maxlength="80"  size="60"/>
 					</td>
 				</tr>
 				<tr>
 					<td width="20%" class="pn-flabel pn-flabel-h">
 						排序:</td><td width="80%" class="pn-fcontent">
-						<input type="text" class="required" name="name" maxlength="80"/>
+						<input type="text" class="required" name="name" value="${brand.sort }" maxlength="80"/>
 					</td>
 				</tr>
 				<tr>
 					<td width="20%" class="pn-flabel pn-flabel-h">
 						是否可用:</td><td width="80%" class="pn-fcontent">
-						<input type="radio" name="isDisplay" value="1" checked="checked"/>可用
-						<input type="radio" name="isDisplay" value="0"/>不可用
+						<input type="radio" name="isDisplay" value="1" <c:if test="${brand.isDisplay == 1 }">checked="checked"</c:if>/>可用
+						<input type="radio" name="isDisplay" value="0" <c:if test="${brand.isDisplay == 0 }">checked="checked"</c:if>/>不可用
 					</td>
 				</tr>
 			</tbody>
