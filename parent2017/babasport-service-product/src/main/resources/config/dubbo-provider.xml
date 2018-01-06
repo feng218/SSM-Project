@@ -37,6 +37,7 @@
 	
 	<!-- 暴露的接口 -->
 	<dubbo:service interface="cn.itcast.core.service.product.BrandService" ref="brandService"/>
+	<dubbo:service interface="cn.itcast.core.service.product.UploadService" ref="uploadService"/>
 	
 </beans>
 		
