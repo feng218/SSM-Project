@@ -46,4 +46,18 @@
 		from bbs_brand
 		where id = #{id}
 	</select>
+	
+	<update id="updateBrand">
+		update bbs_brand
+		<set>
+			<if test="null != name">name = #{name},</if>
+			<if test="null != description">description = #{description},</if>
+			<if test="null != sort">sort = #{sort},</if>
+			<if test="null != imgUrl">img_url = #{imgUrl},</if>
+			<if test="null != isDisplay">is_display = #{isDisplay}</if>
+		</set>
+		<where>
+			id = #{id}
+		</where>
+	</update>
 </mapper>

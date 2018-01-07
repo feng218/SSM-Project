@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import cn.itcast.common.page.Pagination;
 import cn.itcast.core.bean.product.Brand;
@@ -38,9 +39,20 @@ public class BrandController
 	
 	//去修改页面
 	@RequestMapping(value = "/brand/toEdit.do")
-	public String toEdit(Long id,Model model){
+	public String toEdit(Long id, String condName, Integer condIsDisplay, Model model){
 		Brand brand = brandService.selectBrandById(id);//Shift+Alt +L
 		model.addAttribute("brand", brand);
+		model.addAttribute("condName", condName);
+		model.addAttribute("condIsDisplay", condIsDisplay);
 		return "brand/edit";
+	}
+	
+	//去修改页面
+	@RequestMapping(value = "/brand/edit.do")
+	public String edit(String condName, Integer condIsDisplay, Brand brand, RedirectAttributes redirectAttr){
+		brandService.updateBrand(brand);
+		redirectAttr.addAttribute("name", condName);
+		redirectAttr.addAttribute("isDisplay", condIsDisplay);
+		return "redirect:/brand/list.do";
 	}
 }

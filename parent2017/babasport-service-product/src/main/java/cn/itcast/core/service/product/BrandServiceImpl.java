@@ -69,4 +69,10 @@ public class BrandServiceImpl implements BrandService
 		return brandDao.selectBrandById(id);
 	}
 
+	@Override
+	public void updateBrand(Brand brand)
+	{
+		brandDao.updateBrand(brand);
+	}
+
 }

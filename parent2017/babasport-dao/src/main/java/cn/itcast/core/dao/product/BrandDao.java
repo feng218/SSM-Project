@@ -20,4 +20,7 @@ public interface BrandDao
 	
 	//通过ID查询品牌
 	public Brand selectBrandById(Long id);
+	
+	//修改
+	public void updateBrand(Brand brand);
 }

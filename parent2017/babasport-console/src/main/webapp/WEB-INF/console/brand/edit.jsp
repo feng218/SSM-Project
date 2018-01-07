@@ -21,6 +21,7 @@
 					{
 						//将img标签的src属性值设为fastDfs服务器返回的url
 						$("#imgSrc").attr("src", data.url); 
+						$("#imgUrl").val(data.url); 
 					}
 				}
 			};
@@ -37,8 +38,10 @@
 		<div class="clear"></div>
 	</div>
 	<div class="body-box" style="float:right">
-		<form id="jvForm" action="o_save.shtml" method="post">
-			<input type="hidden" name="id" value="${bran.id }"/>
+		<form id="jvForm" action="/brand/edit.do" method="post">
+			<input type="hidden" name="id" value="${brand.id }"/>
+			<input type="hidden" name="condName" value="${condName }"/>
+			<input type="hidden" name="condIsDisplay" value="${condIsDisplay }"/>
 			<table cellspacing="1" cellpadding="2" width="100%" border="0" class="pn-ftable">
 				<tbody>
 					<tr>
@@ -59,20 +62,21 @@
 					<tr>
 						<td width="20%" class="pn-flabel pn-flabel-h"></td>
 						<td width="80%" class="pn-fcontent">
-							<img width="100" height="100" id="imgSrc"/>
+							<img width="100" height="100" id="imgSrc" src="${brand.imgUrl }"/>
+							<input type="hidden" name="imgUrl" id="imgUrl" value="${brand.imgUrl }"/>
 							<input type="file" name="pic" onchange="uploadPic()"/>
 						</td>
 					</tr>
 					<tr>
 						<td width="20%" class="pn-flabel pn-flabel-h">
 							品牌描述:</td><td width="80%" class="pn-fcontent">
-							<input type="text" class="required" name="name" value="${brand.description }" maxlength="80"  size="60"/>
+							<input type="text" class="required" name="description" value="${brand.description }" maxlength="80"  size="60"/>
 						</td>
 					</tr>
 					<tr>
 						<td width="20%" class="pn-flabel pn-flabel-h">
 							排序:</td><td width="80%" class="pn-fcontent">
-							<input type="text" class="required" name="name" value="${brand.sort }" maxlength="80"/>
+							<input type="text" class="required" name="sort" value="${brand.sort }" maxlength="80"/>
 						</td>
 					</tr>
 					<tr>
