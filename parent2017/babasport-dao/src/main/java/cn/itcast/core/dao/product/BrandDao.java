@@ -23,4 +23,7 @@ public interface BrandDao
 	
 	//修改
 	public void updateBrand(Brand brand);
+	
+	//批量删除
+	public void deleteBrands(Long[] ids);
 }

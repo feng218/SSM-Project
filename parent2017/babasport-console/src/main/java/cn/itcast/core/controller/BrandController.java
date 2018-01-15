@@ -55,4 +55,11 @@ public class BrandController
 		redirectAttr.addAttribute("isDisplay", condIsDisplay);
 		return "redirect:/brand/list.do";
 	}
+	
+	//批量删除
+	@RequestMapping(value = "/brand/deletes.do")
+	public String deletes(Long[] ids, String name, Integer isDisplay, Integer pageNo){
+		brandService.deleteBrands(ids);
+		return "forward:/brand/list.do";
+	}
 }

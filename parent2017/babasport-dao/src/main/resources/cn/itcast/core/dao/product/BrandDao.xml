@@ -60,4 +60,14 @@
 			id = #{id}
 		</where>
 	</update>
+	
+	<delete id="deleteBrands" parameterType="Long[]">
+		delete from bbs_brand
+		<where>
+			id in 
+			<foreach collection="array" item="id" open="(" close=")" separator=",">
+				#{id}
+			</foreach>
+		</where>
+	</delete>
 </mapper>
