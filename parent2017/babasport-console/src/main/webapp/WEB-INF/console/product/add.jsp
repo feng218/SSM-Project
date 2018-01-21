@@ -52,32 +52,6 @@ a {
 		});
 	});
 	
-	//上传多张图片
-	function uploadPic(){
-		//上传图片 异步的  	Jquery.form.js
-		var options = {
-				url : "/upload/uploadPics.do",
-				type : "post",
-				dataType : "json",
-				success : function(data){
-					//多图片回显
-					var html = '<tr>'
-							 + '<td width="20%" class="pn-flabel pn-flabel-h"></td>'
-							 + '<td width="80%" class="pn-fcontent">';
-					for(var i=0;i<data.length;i++){
-						html += '<img width="100" height="100" src="' + data[i] + '" />'
-						     +  '<input type="hidden" name="imgUrl" value="' + data[i] + '"/>'
-					}
-					html += '<a href="javascript:;" class="pn-opt" onclick="jQuery(this).parents(\'tr\').remove()">删除</a>'
-						 +  '</td>'
-						 +  '</tr>';
-					//回显
-					$("#tab_2").append(html);
-					
-				}
-		}
-		$("#jvForm").ajaxSubmit(options);
-	}
 </script>
 </head>
 <body>
