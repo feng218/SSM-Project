@@ -33,6 +33,10 @@
 		url="dubbo://127.0.0.1:20880"/>
 	<dubbo:reference interface="cn.itcast.core.service.product.UploadService" id="uploadService"
 		url="dubbo://127.0.0.1:20880"/>
+	<dubbo:reference interface="cn.itcast.core.service.product.ProductService" id="productService"
+		url="dubbo://127.0.0.1:20880"/>
+	<dubbo:reference interface="cn.itcast.core.service.product.ColorService" id="colorService"
+		url="dubbo://127.0.0.1:20880"/>
 	
 	<!-- 全局统一设置请求超时时间，默认为1秒 ; 设置10分钟-->
 	<dubbo:consumer timeout="600000"/>

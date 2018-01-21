@@ -1,6 +1,7 @@
 package cn.itcast.core.service.product;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -79,6 +80,14 @@ public class BrandServiceImpl implements BrandService
 	public void deleteBrands(Long[] ids)
 	{
 		brandDao.deleteBrands(ids);
+	}
+
+	@Override
+	public List<Brand> selectBrandListByQuery(Integer isDisplay)
+	{
+		BrandQuery brandQuery = new BrandQuery();
+		brandQuery.setIsDisplay(isDisplay);
+		return brandDao.selectBrandListByQuery(brandQuery);
 	}
 
 }
